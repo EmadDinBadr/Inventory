@@ -1,4 +1,6 @@
 using Inventory.Application;
+using Inventory.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddMediatR(cfg =>
         typeof(ApplicationAssemblyMarker).Assembly,
         typeof(Program).Assembly
     );
+});
+builder.Services.AddDbContext<Context>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();

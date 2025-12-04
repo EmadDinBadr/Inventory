@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Features\Products\DTOs\" />
     <Folder Include="Features\Products\Queries\" />
+    <Folder Include="Abstractions\" />
   </ItemGroup>
 
   <ItemGroup>
